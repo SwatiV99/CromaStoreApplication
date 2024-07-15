@@ -28,10 +28,12 @@ public class Main {
         READY_TO_SHIP();
         PACK();
         CONNECT_TO_CARRIER();
+        HOTC();
+        DIP();
+        OFD();
+        DELIVERED();
 
-
-
-
+        driver.quit();
     }
 
     public static void LOGIN() {
@@ -118,15 +120,15 @@ public class Main {
         String originalTitle = driver.getTitle();
         System.out.println("Title of the original tab: " + originalTitle);
         driver.findElement(By.xpath(CONNECT_TO_CARRIER_BUTTON)).click();
+        Thread.sleep(2000);
         driver.findElement(By.xpath(CONNECT_TO_CARRIER_OK_BUTTON)).click();
+        Thread.sleep(2000);
         driver.findElement(By.xpath(CLICK_ON_DONE_BUTTON)).click();
 
 
     }
 
     private static void HOTC() throws InterruptedException {
-        driver.findElement(By.xpath(BACK_BUTTON)).click();
-        Thread.sleep(4000);
         driver.findElement(By.xpath(VIEW_ALL_SHIPMENT_BUTTON)).click();
         Thread.sleep(4000);
         driver.findElement(By.xpath(FILTER_BUTTON)).click();
@@ -135,9 +137,108 @@ public class Main {
         Thread.sleep(4000);
         driver.findElement(By.xpath(TYPE_ORDER_NUMBER)).sendKeys(ORDER_NUMBER);
         Thread.sleep(4000);
+        driver.findElement(By.xpath(ORDER_CHANNEL_EXPAND)).click();
+        driver.findElement(By.xpath(ORDER_CHANNEL_DROPDOWN)).click();
+        driver.findElement(By.xpath(ORDER_CHANNEL_VALUE)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(ORDER_TYPE_EXPAND)).click();
+        driver.findElement(By.xpath(ORDER_TYPE_DROPDOWN)).click();
+        driver.findElement(By.xpath(ORDER_TYPE_VALUE)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(SHIPMENT_NUMBER_EXPAND)).click();
+        driver.findElement(By.xpath(TYPE_SHIPMENT_NUMBER)).sendKeys(SHIPMENT_NO);
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(STATUS_EXPAND)).click();
+        driver.findElement(By.xpath(STATUS_DROPDOWN)).click();
+        driver.findElement(By.xpath(STATUS_VALUE)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(CARRIER_EXPAND)).click();
+        driver.findElement(By.xpath(CARRIER_DROPDOWN)).click();
+        driver.findElement(By.xpath(CARRIER_VALUE)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(ORDER_DATE_EXPAND)).click();
+        driver.findElement(By.xpath(CLICK_ORDER_DATE_FROM)).click();
+        driver.findElement(By.xpath(SELECT_DATE_FROM)).click();
+        driver.findElement(By.xpath(CLICK_ORDER_DATE_TO)).click();
+        driver.findElement(By.xpath(SELECT_DATE_TO)).click();
+        Thread.sleep(4000);
+       /* driver.findElement(By.xpath(ESTIMATED_DELIVERY_DATE_EXPAND)).click();
+        driver.findElement(By.xpath(ESTIMATED_DELIVERY_DATE_FROM)).click();
+        driver.findElement(By.xpath(DELIVERY_FROM_DATE)).click();
+        driver.findElement(By.xpath(ESTIMATED_DELIVERY_DATE_TO)).click();
+        driver.findElement(By.xpath(DELIVERY_TO_DATE)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(PIN_CODE_EXPAND)).click();
+        driver.findElement(By.xpath(TYPE_PIN_CODE)).sendKeys(PIN_CODE);
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(CITY_EXPAND)).click();
+        driver.findElement(By.xpath(TYPE_CITY)).sendKeys(CITY);
+        Thread.sleep(4000);*/
+        driver.findElement(By.xpath(LP_MODE_EXPAND)).click();
+        driver.findElement(By.xpath(LP_MODE_DROPDOWN)).click();
+        driver.findElement(By.xpath(LP_MODE_VALUE)).click();
+        Thread.sleep(4000);
         driver.findElement(By.xpath(APPLY_BUTTON)).click();
         Thread.sleep(4000);
-        driver.findElement(By.xpath(CLICK_ON_SHIPMENT_NUMBER)).click();
-        System.out.println("Order is now Ready for Packing");
+        driver.findElement(By.xpath(SELECT_CHECK_BOX)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(HANDOVER_SHIPMENTS_BUTTON)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(HANDOVER_SHIPMENTS_OK_BUTTON)).click();
+        Thread.sleep(2000);
+    }
+
+    private static void DIP() throws InterruptedException{
+        driver.findElement(By.xpath("//*[@id=\"filterBtn\"]/span[1]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(STATUS_EXPAND)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(STATUS_DROPDOWN)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[text()='HOTC']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(APPLY_BUTTON)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(SELECT_CHECK_BOX)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(DELIVERY_IN_PROGRESS_BUTTON)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(DELIVERY_IN_PROGRESS_OK_BUTTON)).click();
+    }
+
+    private static void OFD() throws InterruptedException{
+        driver.findElement(By.xpath("//*[@id=\"filterBtn\"]/span[1]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(STATUS_EXPAND)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(STATUS_DROPDOWN)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[text()='DIP']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(APPLY_BUTTON)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(SELECT_CHECK_BOX)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(OUT_FOR_DELIVER_BUTTON)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(OUT_FOR_DELIVERY_OK_BUTTON)).click();
+    }
+
+    private static void DELIVERED() throws InterruptedException{
+        driver.findElement(By.xpath("//*[@id=\"filterBtn\"]/span[1]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(STATUS_EXPAND)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(STATUS_DROPDOWN)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[text()='Out For Delivery']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(APPLY_BUTTON)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(SELECT_CHECK_BOX)).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath(DELIVERED_BUTTON)).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath(DELIVERED_OK_BUTTON)).click();
     }
 }
