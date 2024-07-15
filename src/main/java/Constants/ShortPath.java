@@ -2,8 +2,8 @@ package Constants;
 
 public class ShortPath {
     public static final String SHIP_NODE = "D001";
-    public static final String ORDER_NUMBER = "20240715022";
-    public static final String SHIPMENT_NO = "107833353";
+    public static final String ORDER_NUMBER = "TEST20240715";
+    public static final String SHIPMENT_NO = "107833357";
     public static final String PIN_CODE = "400069";
     public static final String CITY = "MUMBAI";
     public static final String PORT = "http://10.34.32.94:9080/wsc/store/login.do";
@@ -19,6 +19,7 @@ public class ShortPath {
     public static final String BACK_BUTTON = "//*[@id=\"goBack\"]/span[1]";
     public static final String VIEW_ALL_SHIPMENT_BUTTON = "//*[text()='View All Shipments']";
     public static final String FILTER_BUTTON = "//*[@id=\"filterBtn\"]/span[1]";
+    public static final String FILTER_BUTTON1 = "//*[@id=\"filterBtn\"]/span[1]";
     public static final String CLICK_ON_ORDER_NUMBER_IN_FILTER = "//*[@id=\"mainContentHolder\"]/div[2]/div/div/div[2]/div[1]/div/isc-view-all-shipments-filter/div/div[1]/div/div[2]/div/div/section/uib-accordion/div/div[4]/div[1]/h4/a/span/span[2]";
     public static final String TYPE_ORDER_NUMBER = "//*[@id=\"mainContentHolder\"]/div[2]/div/div/div[2]/div[1]/div/isc-view-all-shipments-filter/div/div[1]/div/div[2]/div/div/section/uib-accordion/div/div[4]/div[2]/div/div/input";
    // public static final String APPLY_BUTTON = "//*[@id=\"mainContentHolder\"]/div[2]/div/div/div[2]/div[1]/div/isc-view-all-shipments-filter/div/div[1]/div/div[2]/div/div/div/div/button[2]";
@@ -73,9 +74,9 @@ public class ShortPath {
     public static final String OUT_FOR_DELIVERY_OK_BUTTON = "//*[@id=\"bodyTagId\"]/div[1]/div/div/footer/div/button/span";
     public static final String DELIVERED_BUTTON = "//*[@id=\"mainContentHolder\"]/div[2]/div/div/div[1]/div[2]/div/div[3]/button/span";
     public static final String DELIVERED_OK_BUTTON = "//*[@id=\"bodyTagId\"]/div[1]/div/div/footer/div/button";
-//    public static final String TYPE_PIN_CODE = "";
-//    public static final String TYPE_PIN_CODE = "";
-//    public static final String TYPE_PIN_CODE = "";
+    public static final String CLICK_ON_HOTC = "//*[text()='HOTC']";
+    public static final String CLICK_ON_DIP = "//*[text()='DIP']";
+    public static final String CLICK_ON_OUT_FOR_DELIVERY = "//*[text()='Out For Delivery']";
 //    public static final String TYPE_PIN_CODE = "";
 
 
